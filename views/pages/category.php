@@ -9,12 +9,10 @@
                     <img src="<?= IMAGES_DIR . $product['image_name'] ?>" alt="<?= $product['image_name'] ?>">
                 </td>
             </tr>
-            <tr class="description">
-                <td><?= $product['description'] ?></td>
-            </tr>
             <tr class="price">
                 <td><?= $product['price'] ?></td>
             </tr>
+            <a href="?id=<?= $product['id'] ?>"></a>
         </table>
     <?php endforeach; ?>
 </div>
