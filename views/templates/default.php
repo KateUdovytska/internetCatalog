@@ -10,7 +10,7 @@
 </head>
 <body>
 <header>
-    <h1><a href="">Sweet Dreams</a></h1>
+    <h1><a href="?">Sweet Dreams</a></h1>
 </header>
 <main>
     <?php if (isset($this->page)): ?>
