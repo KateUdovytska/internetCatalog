@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `login` varchar(80) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `admin`
+--
+
+INSERT INTO `admin` (`id`, `login`, `password`) VALUES
+(1, 'admin', '$2y$10$10oTfR1kiqEYnj4hgFLDguQ2AAxloWomRC3oeXbr6g1I4vPVLmnxq');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `categories`
 --
 
