@@ -75,4 +75,10 @@ class Products
         }
         return $this->products;
     }
+
+    public function deleteProduct($id)
+    {
+        $query = "DELETE FROM products WHERE id = $id;";
+        return $this->db->query($query);
+    }
 }
