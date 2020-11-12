@@ -64,7 +64,7 @@ class Controllers
             'name' => filter_input(INPUT_POST, 'name'),
             'category_id' => filter_input(INPUT_POST, 'category_id'),
             'description' => filter_input(INPUT_POST, 'description'),
-            'article' => filter_input(INPUT_POST, 'article'),
+            'vendor_code' => filter_input(INPUT_POST, 'article'),
             'price' => filter_input(INPUT_POST, 'price'),
         ];
         $this->products->addProduct($newProduct);
