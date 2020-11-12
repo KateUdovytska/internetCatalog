@@ -19,7 +19,6 @@ class Controllers
      */
     public function main()
     {
-        $this->view->page = 'main';
         $this->view->render($this->products->getAllProducts());
     }
 
