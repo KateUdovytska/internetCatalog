@@ -29,10 +29,9 @@ class Controllers
      */
     public function category()
     {
-        $category = $_SERVER['QUERY_STRING'];
-        if (isset($category)) {
-            $this->view->render($this->products->getCategory($category));
-        }
+        $this->view->page = 'category';
+        $category = filter_input(INPUT_GET, 'category');
+        $this->products->getCategory($category);
     }
 
     /**
