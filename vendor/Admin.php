@@ -7,7 +7,7 @@ class Admin
 
     public function __construct()
     {
-        $this->db = new mysqli(DB_HOST, DB_USER_NAME, DB_PASSWORD, DB_NAME);
+        $this->db = new mysqli(DB_HOST, DB_USERNAME, DB_PASS, DB_NAME);
     }
 
     public function checkLoginAndPass()
