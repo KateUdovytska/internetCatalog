@@ -1,6 +1,5 @@
-<a href="#" class="back">Back to menu</a>
-    <div class="category">
-        <?php foreach ($data as $product): ?>
+<div class="category">
+    <?php foreach ($data as $product): ?>
         <table class="product">
             <tr>
                 <th><?= $product['name'] ?></th>
@@ -17,5 +16,5 @@
                 <td><?= $product['price'] ?></td>
             </tr>
         </table>
-        <?php endforeach; ?>
-    </div>
+    <?php endforeach; ?>
+</div>
