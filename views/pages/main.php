@@ -9,6 +9,7 @@
             <li><a href="?category=marshmallow">Зефир</a></li>
         </ul>
     </nav>
+    <h2>All products</h2>
     <?php foreach ($data as $product): ?>
         <table class="product">
             <tr>
