@@ -31,7 +31,7 @@ class Controllers
     {
         $this->view->page = 'category';
         $category = filter_input(INPUT_GET, 'category');
-        $this->products->getCategory($category);
+        $this->view->render($this->products->getCategory($category));
     }
 
     /**
