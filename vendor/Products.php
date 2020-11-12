@@ -47,7 +47,7 @@ class Products
                 $price = $newProduct['price'];
                 $vendorCode = $newProduct['vendorCode'];
                 $category = $newProduct['category'];
-                $imageName = $newProduct['imageName'];
+                $imageName = $image['name'] . $extension;
                 $query = "INSERT INTO products (id, name, description, price, vendor_code, category, image_name) VALUES (NULL, '$name', '$description', '$price', '$vendorCode', '$category', '$imageName');";
                 return $this->db->query($query);
             } else {
