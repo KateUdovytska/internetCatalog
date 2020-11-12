@@ -60,7 +60,11 @@ class Products
     public function getProduct($id)
     {
         $query = "SELECT * FROM products WHERE id = $id;";
-        return $this->db->query($query);
+        $result = $this->db->query($query);
+        if ($result) {
+            return $result->fetch_assoc();
+        }
+        return false;
     }
 
     public function getCategory($category)
