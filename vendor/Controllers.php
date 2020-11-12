@@ -14,7 +14,7 @@ class Controllers
 
     /**
      * main()
-     * @todo отображение всех продуктов
+     * отображение всех продуктов
      *
      */
     public function main()
@@ -25,29 +25,30 @@ class Controllers
 
     /**
      * category()
-     * @todo отображает все товары выбранной категории
+     * отображает все товары выбранной категории
      */
     public function category()
     {
-        $this->view->page = 'category';
-        $categoryId = filter_input(INPUT_GET,'category_id');
-        $this->view->render($this->products->getCategory($categoryId));
+        $category = $_SERVER['QUERY_STRING'];
+        if (isset($category)) {
+            $this->view->render($this->products->getCategory($category));
+        }
     }
 
     /**
      * item()
-     * @todo отображение информации о продукте
+     * отображение информации о продукте
      */
     public function item()
     {
         $this->view->page = 'item';
-        $itemId = filter_input(INPUT_GET,'itemid');
+        $itemId = filter_input(INPUT_GET, 'itemid');
         $this->view->render($this->products->getProduct($itemId));
     }
 
     /**
      * admin()
-     * @todo функционал не ясен
+     *
      */
     public function admin()
     {
@@ -56,16 +57,16 @@ class Controllers
 
     /**
      * add()
-     * @todo механизм добовления продукта
+     * механизм добовления продукта
      */
     public function add()
     {
         $newProduct = [
             'name' => filter_input(INPUT_POST, 'name'),
-            'category_id' =>filter_input(INPUT_POST, 'category_id'),
+            'category_id' => filter_input(INPUT_POST, 'category_id'),
             'description' => filter_input(INPUT_POST, 'description'),
-            'article' => filter_input(INPUT_POST,'article'),
-            'price' => filter_input(INPUT_POST,'price'),
+            'article' => filter_input(INPUT_POST, 'article'),
+            'price' => filter_input(INPUT_POST, 'price'),
         ];
         $this->products->addProduct($newProduct);
         Router::redirect();
@@ -74,11 +75,11 @@ class Controllers
 
     /**
      * delete()
-     * @todo удаляет выбранный продукт
+     * удаляет выбранный продукт
      */
     public function delete()
     {
-        $delProductId = filter_input(INPUT_POST,'delete_id');
+        $delProductId = filter_input(INPUT_POST, 'delete_id');
         $this->products->deleteProduct($delProductId);
         Router::redirect();
     }
