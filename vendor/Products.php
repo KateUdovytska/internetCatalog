@@ -63,9 +63,8 @@ class Products
         return $this->db->query($query);
     }
 
-    public function getCategory()
+    public function getCategory($category)
     {
-        $category = filter_input(INPUT_GET, 'category');
         $query = "SELECT * FROM products WHERE category LIKE '$category';";
         $result = $this->db->query($query);
         if ($result) {
