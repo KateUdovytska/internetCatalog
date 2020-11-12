@@ -41,7 +41,7 @@ class Controllers
     public function item()
     {
         $this->view->page = 'item';
-        $itemId = filter_input(INPUT_GET, 'itemid');
+        $itemId = filter_input(INPUT_GET, 'id');
         $this->view->render($this->products->getProduct($itemId));
     }
 
