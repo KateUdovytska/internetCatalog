@@ -1,20 +1,20 @@
-<table>
-    <?php foreach ($data as $productItem): ?>
-        <tr>
-            <td>
-                <h2><?php $productItem['name'] ?></h2>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <pre><?php $productItem['description'] ?></pre>
-            </td>
-        </tr>
-        <tr>
-            <p><?php $productItem['price'] ?></p>
-        </tr>
-        <tr>
-            <p><?php $productItem['article'] ?></p>
-        </tr>
+<div class="category">
+    <?php foreach ($data as $product): ?>
+        <table class="product">
+            <tr>
+                <th><?= $product['name'] ?></th>
+            </tr>
+            <tr class="image">
+                <td>
+                    <img src="<?= IMAGES_DIR . $product['image_name'] ?>" alt="<?= $product['image_name'] ?>">
+                </td>
+            </tr>
+            <tr class="description">
+                <td><?= $product['description'] ?></td>
+            </tr>
+            <tr class="price">
+                <td><?= $product['price'] ?></td>
+            </tr>
+        </table>
     <?php endforeach; ?>
-</table>
+</div>
