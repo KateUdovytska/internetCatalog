@@ -18,6 +18,8 @@ class Router
             $action = 'category';
         } elseif (isset($_GET['id'])) {
             $action = 'item';
+        } elseif (isset($_GET['delete_id'])) {
+            $action = 'delete';
         }
         $controller->$action();
     }

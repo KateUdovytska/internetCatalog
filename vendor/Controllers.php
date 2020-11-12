@@ -21,6 +21,7 @@ class Controllers
      */
     public function main()
     {
+        $this->view->page = 'main';
         $this->view->render($this->products->getAllProducts());
     }
 
@@ -52,10 +53,10 @@ class Controllers
      */
     public function admin()
     {
+        session_start();
         $this->view->page = 'admin';
         $this->view->render($this->products->getAllProducts());
-        $check = $this->admin->checkLoginAndPass();
-
+        $_SESSION['check'] = $this->admin->checkLoginAndPass();
     }
 
     /**
@@ -82,7 +83,7 @@ class Controllers
      */
     public function delete()
     {
-        $delProductId = filter_input(INPUT_POST, 'id');
+        $delProductId = filter_input(INPUT_POST, 'delete_id');
         $this->products->deleteProduct($delProductId);
         Router::redirect();
     }

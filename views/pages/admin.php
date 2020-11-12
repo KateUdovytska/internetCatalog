@@ -1,4 +1,4 @@
-<?php if ($check) : ?>
+<?php if ($_SESSION['check']) : ?>
     <div class="addItem">
         <form method="post" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="name" required>
@@ -25,17 +25,19 @@
                 </tr>
                 <tr class="image">
                     <td>
-                        <img src="<?= IMAGES_DIR . $product['imageName'] ?>" alt="<?= $product['imageName'] ?>">
+                        <img src="<?= IMAGES_DIR . $product['image_name'] ?>" alt="<?= $product['image_name'] ?>">
                     </td>
                 </tr>
                 <tr class="price">
                     <td><?= $product['price'] ?></td>
                 </tr>
                 <tr class="delete">
-                    <form>
-                        <input type="hidden" name="delete_id" value="<?= $product['id'] ?>">
-                        <button type="submit" value="del" class="delete"><i class="far fa-trash-alt"></i></button>
-                    </form>
+                    <td>
+                        <form method="get">
+                            <input type="hidden" name="delete_id" value="<?= $product['id'] ?>">
+                            <button type="submit" value="del" class="delete"><i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </td>
                 </tr>
             </table>
         <?php endforeach; ?>
