@@ -47,7 +47,7 @@ class Products
                 $price = $newProduct['price'];
                 $vendorCode = $newProduct['vendorCode'];
                 $category = $newProduct['category'];
-                $imageName = $newProduct['imageName'];
+                $imageName = $image['name'] . $extension;
                 $query = "INSERT INTO products (id, name, description, price, vendor_code, category, image_name) VALUES (NULL, '$name', '$description', '$price', '$vendorCode', '$category', '$imageName');";
                 return $this->db->query($query);
             } else {
@@ -60,7 +60,11 @@ class Products
     public function getProduct($id)
     {
         $query = "SELECT * FROM products WHERE id = $id;";
-        return $this->db->query($query);
+        $result = $this->db->query($query);
+        if ($result) {
+            return $result->fetch_assoc();
+        }
+        return false;
     }
 
     public function getCategory($category)
