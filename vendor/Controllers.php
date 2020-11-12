@@ -78,7 +78,7 @@ class Controllers
      */
     public function delete()
     {
-        $delProductId = filter_input(INPUT_POST, 'delete_id');
+        $delProductId = filter_input(INPUT_POST, 'id');
         $this->products->deleteProduct($delProductId);
         Router::redirect();
     }
