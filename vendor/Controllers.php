@@ -14,12 +14,13 @@ class Controllers
 
     /**
      * main()
-     * @todo функционал не ясен
+     * @todo отображение всех продуктов
      *
      */
     public function main()
     {
-
+        $this->view->page = 'main';
+        $this->view->render($this->products->getAllProducts());
     }
 
     /**
@@ -50,7 +51,7 @@ class Controllers
      */
     public function admin()
     {
-
+        $this->view->render($this->products->getAllProducts());
     }
 
     /**
@@ -69,6 +70,17 @@ class Controllers
         $this->products->addProduct($newProduct);
         Router::redirect();
 
+    }
+
+    /**
+     * delete()
+     * @todo удаляет выбранный продукт
+     */
+    public function delete()
+    {
+        $delProductId = filter_input(INPUT_POST,'delete_id');
+        $this->products->deleteProduct($delProductId);
+        Router::redirect();
     }
 
 }
