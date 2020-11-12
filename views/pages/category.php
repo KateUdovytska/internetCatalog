@@ -1,4 +1,4 @@
-<a href="#" class="back">Back to menu</a>
+<a href="?" class="back">Back to menu</a>
     <div class="category">
         <?php foreach ($data as $product): ?>
         <table class="product">
