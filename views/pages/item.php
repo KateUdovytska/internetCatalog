@@ -1,6 +1,3 @@
-<form action="#" method="GET">
-    <input type="submit" value="#">
-</form>
 <table>
     <?php foreach ($data as $productItem): ?>
         <tr>
