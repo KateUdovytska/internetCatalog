@@ -52,9 +52,10 @@ class Controllers
      */
     public function admin()
     {
+        $this->view->page = 'admin';
         $this->view->render($this->products->getAllProducts());
         $check = $this->admin->checkLoginAndPass();
-        Router::redirect();
+
     }
 
     /**
