@@ -7,7 +7,7 @@
             </tr>
             <tr class="image">
                 <td>
-                    <img src="<?= IMAGES_DIR . $product['imageName'] ?>" alt="<?= $product['imageName'] ?>">
+                    <img src="<?= IMAGES_DIR . $product['image_name'] ?>" alt="<?= $product['image_name'] ?>">
                 </td>
             </tr>
             <tr class="description">
