@@ -5,11 +5,13 @@ class Controllers
 {
     private $view;
     private $products;
+    private $admin;
 
     public function __construct()
     {
         $this->view = new View();
         $this->products = new Products();
+        $this->admin = new Admin();
     }
 
     /**
@@ -51,6 +53,8 @@ class Controllers
     public function admin()
     {
         $this->view->render($this->products->getAllProducts());
+        $check = $this->admin->checkLoginAndPass();
+        Router::redirect();
     }
 
     /**
