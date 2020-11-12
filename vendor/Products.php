@@ -6,6 +6,7 @@ class Products
     private $products;
     private $db;
 
+
     public function __construct()
     {
         $this->db = new mysqli(DB_HOST, DB_USERNAME, DB_PASS, DB_NAME);
@@ -57,7 +58,7 @@ class Products
                 $vendorCode = $newProduct['vendorCode'];
                 $category = $newProduct['category'];
                 $imageName = $image['name'] . $extension;
-                $query = "INSERT INTO products (id, name, description, price, vendor_code, category, image_name) VALUES (NULL, '$name', '$description', '$price', '$vendorCode', '$category', '$imageName');";
+                $query = "INSERT INTO products (id, name, description, price, vendor_code, category_id, image_name) VALUES (NULL, '$name', '$description', '$price', '$vendorCode', '$category', '$imageName');";
                 return $this->db->query($query);
             } else {
                 $_SESSION['message'] = "Couldn't upload file";
