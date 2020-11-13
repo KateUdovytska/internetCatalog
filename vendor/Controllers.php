@@ -98,4 +98,15 @@ class Controllers
         Router::redirect();
     }
 
+    /**
+     * adminUsers()
+     *
+     */
+    public function adminUsers()
+    {
+        $this->view->page = 'admin_users';
+        $this->view->render($this->admin->getAllUsers());
+    }
+
+
 }
