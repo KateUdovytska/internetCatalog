@@ -2,35 +2,40 @@
 <nav>
     <h2>Categories:</h2>
     <ul>
-        <li><a href="?category=cookies">Печенье</a></li>
-        <li><a href="?category=cakes">Торты</a></li>
-        <li><a href="?category=waffles">Вафли</a></li>
-        <li><a href="?category=chocolate">Шоколад</a></li>
-        <li><a href="?category=marshmallow">Зефир</a></li>
+        <li>
+            <a href="?category=cookies">Печенье</a>
+        </li>
+        <li>
+            <a href="?category=cakes">Торты</a>
+        </li>
+        <li>
+            <a href="?category=waffles">Вафли</a>
+        </li>
+        <li>
+            <a href="?category=chocolate">Шоколад</a>
+        </li>
+        <li>
+            <a href="?category=marshmallow">Зефир</a>
+        </li>
     </ul>
 </nav>
 <div class="products-description">
-    <h2>All products</h2>
-    <div class="products">
+    <table class="table_products">
+        <caption>All Products</caption>
+        <tr>
+            <th>name</th>
+            <th>img</th>
+            <th>price</th>
+            <th>ID</th>
+        </tr>
         <?php foreach ($data as $product): ?>
-            <table class="product">
-                <tr>
-                    <th><?= $product['name'] ?></th>
-                </tr>
-                <tr class="image">
-                    <td>
-                        <img src="<?= IMAGES_DIR . $product['image_name'] ?>" alt="<?= $product['image_name'] ?>">
-                    </td>
-                </tr>
-                <tr class="price">
-                    <td><?= $product['price'] ?>$</td>
-                </tr>
-                <tr class="readMore">
-                    <td>
-                        <button><a href="?id=<?= $product['id'] ?>">Read more</a></button>
-                    </td>
-                </tr>
-            </table>
+            <tr>
+                <td><?= $product['name'] ?></td>
+                <td class="td_img"><img src="<?= IMAGES_DIR . $product['image_name'] ?>"
+                         alt="<?= $product['image_name'] ?>" class="img_table"></td>
+                <td><?= $product['price'] ?>$</td>
+                <td><?= $product['id'] ?></td>
+            </tr>
         <?php endforeach; ?>
-    </div>
+    </table>
 </div>
