@@ -3,11 +3,14 @@
     margin: 0;
     box-sizing: border-box;
 }
+html {
+    height: 100vmin;
+}
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vmin;
+    /*height: 100%;*/
     background-image: url("../images/bg_candy.jpg");
     background-repeat: repeat;
 }
@@ -40,6 +43,7 @@ main {
     flex-direction: column;
     flex-wrap: wrap;
     flex-flow: row;
+    height: 100%;
 }
 main > :first-child{
     width: min-content;
