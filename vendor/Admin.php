@@ -27,4 +27,22 @@ class Admin
         }
         return false;
     }
+
+    public function addNewUser(){
+        $login = filter_input(INPUT_POST, 'userLogin');
+        $pass = filter_input(INPUT_POST, 'userPassword');
+        $confPass = filter_input(INPUT_POST, 'userPassword');
+    }
+
+    public function getAllUsers(){
+
+    }
+
+    public function editUser(){
+
+    }
+
+    public function deleteUser(){
+
+    }
 }
