@@ -110,7 +110,29 @@ tr.image img {
 .price {
     color: #2a7bc8;
 }
-
+.category{
+    display: flex;
+    justify-content: center;
+}
+div.admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    font-size: 20px;
+}
+.addItem>form{
+    width: 40%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    min-height: 80px;
+}
+.addItem>p{
+    margin-left: 46%;
+}
 footer {
     text-align: center;
     position: absolute;
