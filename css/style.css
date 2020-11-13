@@ -1,6 +1,15 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vmin;
+    background-image: url("../images/bg_candy.jpg");
+    background-repeat: repeat;
 }
 
 header {
@@ -11,11 +20,73 @@ header {
     height: 5rem;
     line-height: 5rem;
 }
+header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 
+}
+
+.logo {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    justify-self: flex-start;
+    top: 10px;
+    left: 40px;
+}
 main {
     display: flex;
-    height: calc(100% - 7rem);
-    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-flow: row;
+}
+main > :first-child{
+    width: min-content;
+    height: initial;
+}
+main > :last-child {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.img_table {
+    position: relative;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    height: 50px;
+    width: 100%;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.td_img {
+    width: 100px;
+}
+
+.table_products {
+    background-color: rgba(220,220,220,.7);
+    margin: 10px;
+    border:2px solid #000;
+    border-radius: 10px;
+    border-collapse: collapse;
+    text-align: center;
+    backdrop-filter: blur(2px);
+}
+
+caption {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #000;
+    width: 100%;
+    color:#fff;
+}
+.table_products tr, .table_products td {
+    border: 2px solid #000;
+}
+.table_products td {
+    height: 60px;
 }
 
 a {
@@ -131,7 +202,7 @@ tr.image img {
 
 .category {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin: 1rem auto;
     height: calc(100vh - 9rem);
