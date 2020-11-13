@@ -12,7 +12,11 @@
             <tr class="price">
                 <td><?= $product['price'] ?></td>
             </tr>
+            <tr class="readMore">
+                <td>
+                    <button><a href="?id=<?= $product['id'] ?>">Read more</a></button>
+                </td>
+            </tr>
         </table>
-        <a href="?id=<?= $product['id'] ?>">read more...</a>
     <?php endforeach; ?>
 </div>
