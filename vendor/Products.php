@@ -54,11 +54,24 @@ class Products
                 $name = $newProduct['name'];
                 $description = $newProduct['description'];
                 $price = $newProduct['price'];
+                $imageName = $fileName;
                 $vendorCode = $newProduct['vendorCode'];
                 $category = $newProduct['category'];
-                $imageName = $fileName;
-                $query = "INSERT INTO products (id, name, description, price, vendor_code, category_id, image_name) VALUES (NULL, '$name', '$description', '$price', '$vendorCode', '$category', '$imageName');";
-                return $this->db->query($query);
+                if (!is_numeric($price)) {
+                    $_SESSION['message'] = 'Price must be a number';
+                    unlink(IMAGES_DIR . $imageName);
+                    $_SESSION['name'] = $name;
+                    $_SESSION['description'] = $description;
+                    $_SESSION['imageName'] = $imageName;
+                    $_SESSION['vendorCode'] = $vendorCode;
+                    $_SESSION['category'] = $category;
+                    return false;
+                } else {
+                    $query = "INSERT INTO products (id, name, description, price, vendor_code, category_id, image_name) VALUES (NULL, '$name', '$description', '$price', '$vendorCode', '$category', '$imageName');";
+                    return $this->db->query($query);
+                }
+
+
             } else {
                 $_SESSION['message'] = "Couldn't upload file";
                 return false;
