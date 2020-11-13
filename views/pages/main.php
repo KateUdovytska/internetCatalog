@@ -1,3 +1,4 @@
+<?php session_unset(); ?>
 <nav>
     <h2>Categories:</h2>
     <ul>

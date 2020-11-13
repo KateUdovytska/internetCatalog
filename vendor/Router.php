@@ -15,7 +15,9 @@ class Router
         $action = 'main';
         if ($_GET['page'] === 'admin') {
             $action = 'admin';
-            if (isset($_POST['price'])) {
+            if (isset($_POST['login'])) {
+                $action = 'login';
+            } elseif (isset($_POST['price'])) {
                 $action = 'add';
             } elseif (isset($_POST['delete_id'])) {
                 $action = 'delete';

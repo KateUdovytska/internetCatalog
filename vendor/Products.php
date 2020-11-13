@@ -106,6 +106,7 @@ class Products
         $imageName = $result->fetch_row();
         if ($imageName) {
             if (unlink(IMAGES_DIR . $imageName[0])) {
+                $_SESSION['message'] = 'Deleted successfully';
                 $query = "DELETE FROM products WHERE id = $id;";
                 return $this->db->query($query);
             }

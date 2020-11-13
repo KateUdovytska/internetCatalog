@@ -56,10 +56,18 @@ class Controllers
     {
         $this->view->page = 'admin';
         $this->view->render($this->products->getAllProducts());
-        $admin = new Admin();
-        if ($admin->checkLoginAndPass()) {
-            $_SESSION['check'] = $admin->checkLoginAndPass();
+    }
+
+    public function login()
+    {
+        $check = $this->admin->checkLoginAndPass();
+        if ($check) {
+            $_SESSION['check'] = true;
+            $_SESSION['message'] = 'Welcome';
+        } else {
+            $_SESSION['message'] = 'Wrong login or password';
         }
+        Router::redirect();
     }
 
     /**
