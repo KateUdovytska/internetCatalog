@@ -1,4 +1,3 @@
-<?php session_unset(); ?>
 <div class="products-description">
     <h2>All products</h2>
     <div class="products">
