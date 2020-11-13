@@ -134,6 +134,7 @@ tr.image img {
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
+    height: calc(100vh - 7rem);
 }
 
 div.admin {
@@ -141,8 +142,9 @@ div.admin {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 20px auto;
     font-size: 20px;
+    margin: 0 auto;
+    height: calc(100vh - 7rem);
 }
 
 div.admin > form > input {
