@@ -46,8 +46,7 @@ class Products
         } else if ($image['size'] >= MAX_IMAGE_SIZE) {
             $_SESSION['message'] = "file " . $image['name'] . " is too large";
         } else {
-            $extension = pathinfo($image['name'])['extension'];
-            $fileName = uniqid() . $image['name'] . '.' . $extension;
+            $fileName = uniqid() . $image['name'];
             $filePath = IMAGES_DIR . $fileName;
             if (move_uploaded_file($image['tmp_name'], $filePath)) {
                 $_SESSION['message'] = 'Uploaded successfully';
@@ -57,7 +56,7 @@ class Products
                 $price = $newProduct['price'];
                 $vendorCode = $newProduct['vendorCode'];
                 $category = $newProduct['category'];
-                $imageName = $image['name'] . '.' . $extension;
+                $imageName = $fileName;
                 $query = "INSERT INTO products (id, name, description, price, vendor_code, category_id, image_name) VALUES (NULL, '$name', '$description', '$price', '$vendorCode', '$category', '$imageName');";
                 return $this->db->query($query);
             } else {
@@ -102,7 +101,15 @@ class Products
      */
     public function deleteProduct($id)
     {
-        $query = "DELETE FROM products WHERE id = $id;";
-        return $this->db->query($query);
+        $query = "SELECT image_name FROM products WHERE id = $id;";
+        $result = $this->db->query($query);
+        $imageName = $result->fetch_row();
+        if ($imageName) {
+            if (unlink(IMAGES_DIR . $imageName[0])) {
+                $query = "DELETE FROM products WHERE id = $id;";
+                return $this->db->query($query);
+            }
+        }
+        return false;
     }
 }

@@ -1,11 +1,11 @@
 <?php if ($_SESSION['check']) : ?>
-
     <div class="addItem">
         <p>Добавить товар</p>
         <form method="post" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="name" required>
             <input type="text" name="price" placeholder="price" required>
             <textarea name="description" placeholder="description" required></textarea>
+            <input type="text" name="vendorCode" placeholder="vendor code" required>
             <select name="category" required>
                 <option selected disabled>select category</option>
                 <option value="1">cookies</option>
@@ -18,7 +18,7 @@
             <input type="submit" value="Send">
         </form>
     </div>
-    <div class="category">
+    <div class="products">
         <?php foreach ($data as $id => $product): ?>
             <table class="product">
                 <tr>
@@ -34,7 +34,7 @@
                 </tr>
                 <tr class="delete">
                     <td>
-                        <form method="get">
+                        <form method="POST">
                             <input type="hidden" name="delete_id" value="<?= $product['id'] ?>">
                             <button type="submit" value="del" class="delete"><i class="far fa-trash-alt"></i></button>
                         </form>

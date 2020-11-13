@@ -23,6 +23,7 @@ class Controllers
     {
         $this->view->page = 'main';
         $this->view->render($this->products->getAllProducts());
+        session_unset();
     }
 
     /**
@@ -53,9 +54,12 @@ class Controllers
      */
     public function admin()
     {
-        session_start();
         $this->view->page = 'admin';
         $this->view->render($this->products->getAllProducts());
+        $admin = new Admin();
+        if ($admin->checkLoginAndPass()) {
+            $_SESSION['check'] = $admin->checkLoginAndPass();
+        }
     }
 
     /**
@@ -66,14 +70,13 @@ class Controllers
     {
         $newProduct = [
             'name' => filter_input(INPUT_POST, 'name'),
-            'category_id' => filter_input(INPUT_POST, 'category_id'),
+            'category' => filter_input(INPUT_POST, 'category'),
             'description' => filter_input(INPUT_POST, 'description'),
-            'vendor_code' => filter_input(INPUT_POST, 'article'),
+            'vendorCode' => filter_input(INPUT_POST, 'vendorCode'),
             'price' => filter_input(INPUT_POST, 'price'),
         ];
         $this->products->addProduct($newProduct);
         Router::redirect();
-
     }
 
     /**
