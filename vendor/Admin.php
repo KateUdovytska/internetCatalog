@@ -21,6 +21,7 @@ class Admin
             $hash = $tmp['password'];
             $ver = password_verify("$pass", $hash);
             if ($ver) {
+                $_SESSION['check'] = true;
                 return true;
             }
         }
