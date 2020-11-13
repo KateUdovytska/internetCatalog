@@ -50,8 +50,6 @@ nav a {
 }
 
 nav a:after {
-    content: "\f18e";
-    font-family: FontAwesome;
     position: absolute;
     right: 5px;
     color: white;
@@ -104,10 +102,9 @@ tr.image img {
 }
 
 .readMore button {
-    background-color: #c8c8c8;
+    background-color: #80C8A0;
     padding: 10px;
     margin: 10px 0;
-
 }
 
 .price {
