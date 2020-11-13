@@ -1,9 +1,9 @@
 <div class="addNewUser">
     <p>Добавить пользователя</p>
     <form method="post" class="registrationForm">
-        <input type="text" name="userLogin" placeholder="login">
-        <input type="password" name="userPassword" placeholder="password">
-        <input type="password" name="confPassword" placeholder="confirm the password">
+        <input type="text" name="userLogin" placeholder="login" required>
+        <input type="password" name="userPassword" placeholder="password" required>
+        <input type="password" name="confPassword" placeholder="confirm the password" required>
         <input type="submit" value="Add User">
     </form>
 </div>
