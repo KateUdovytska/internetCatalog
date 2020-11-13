@@ -6,7 +6,6 @@
             <input type="text" name="name" placeholder="name" required>
             <input type="text" name="price" placeholder="price" required>
             <textarea name="description" placeholder="description" required></textarea>
-            <input type="text" name="vendorCode" placeholder="title" required>
             <select name="category" required>
                 <option selected disabled>select category</option>
                 <option value="1">cookies</option>
