@@ -28,6 +28,7 @@ nav {
     width: 10%;
     padding: 30px;
     color: #e3e3dd;
+    height: 100vh;
 }
 
 nav h2 {
@@ -44,7 +45,7 @@ nav ul {
 }
 
 nav li {
-    margin: 12px 0 0 0px;
+    margin: 12px 0 0 0;
 }
 
 nav a {
@@ -79,7 +80,13 @@ nav a:hover {
     flex-direction: column;
 }
 
-/*настроить флекс*/
+.products-description h2 {
+    margin: 1rem 1.5rem;
+    padding: 1rem;
+    background-color: #3d3d3d;
+    color: #dcdcdc;
+}
+
 table.product {
     background: #dcdcdc;
     width: 300px;
@@ -121,12 +128,15 @@ tr.image img {
 .price {
     color: #2a7bc8;
 }
-.category{
+
+.category {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
-div.admin{
+
+div.admin {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,13 +144,15 @@ div.admin{
     margin: 20px auto;
     font-size: 20px;
 }
-div.admin>form>input{
+
+div.admin > form > input {
     padding: 5px 3px;
     margin: 5px 0;
     background-color: #e3e3dd;
     border: #3d3d3d 1px solid;
 }
-.addItem>form{
+
+.addItem > form {
     width: 80%;
     margin: 10px auto;
     display: flex;
@@ -148,26 +160,36 @@ div.admin>form>input{
     justify-items: center;
     min-height: 80px;
 }
-.addItem>form>input{
+
+.addItem > form > input {
     padding: 5px 3px;
     margin: 5px 0;
     background-color: #e3e3dd;
     border: #3d3d3d 1px solid;
 }
-.addItem>form>textarea{
+
+.addItem > form > textarea {
     height: 100px;
     size: 20px;
     background-color: #e3e3dd;
 }
-.addItem>form>option{
+
+.addItem > form > select {
+    background-color: #e3e3dd;
+    border: #3d3d3d 1px solid;
+}
+
+.addItem > form > option {
     height: 100px;
     size: 20px;
     background-color: #e3e3dd;
 }
-.addItem>p{
+
+.addItem > p {
     margin-left: 35%;
     margin-top: 10px;
 }
+
 footer {
     text-align: center;
     width: 100%;
