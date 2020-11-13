@@ -56,7 +56,6 @@ class Controllers
         session_start();
         $this->view->page = 'admin';
         $this->view->render($this->products->getAllProducts());
-        $_SESSION['check'] = $this->admin->checkLoginAndPass();
     }
 
     /**
