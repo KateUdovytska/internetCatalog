@@ -1,5 +1,7 @@
 <?php if ($_SESSION['check']) : ?>
+
     <div class="addItem">
+        <p>Добавить товар</p>
         <form method="post" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="name" required>
             <input type="text" name="price" placeholder="price" required>
