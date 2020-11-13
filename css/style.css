@@ -131,19 +131,42 @@ div.admin{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 20px;
+    margin: 20px auto;
     font-size: 20px;
 }
+div.admin>form>input{
+    padding: 5px 3px;
+    margin: 5px 0;
+    background-color: #e3e3dd;
+    border: #3d3d3d 1px solid;
+}
 .addItem>form{
-    width: 40%;
+    width: 80%;
     margin: 10px auto;
     display: flex;
     flex-direction: column;
     justify-items: center;
     min-height: 80px;
 }
+.addItem>form>input{
+    padding: 5px 3px;
+    margin: 5px 0;
+    background-color: #e3e3dd;
+    border: #3d3d3d 1px solid;
+}
+.addItem>form>textarea{
+    height: 100px;
+    size: 20px;
+    background-color: #e3e3dd;
+}
+.addItem>form>option{
+    height: 100px;
+    size: 20px;
+    background-color: #e3e3dd;
+}
 .addItem>p{
-    margin-left: 46%;
+    margin-left: 35%;
+    margin-top: 10px;
 }
 footer {
     text-align: center;
