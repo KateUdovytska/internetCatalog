@@ -2,17 +2,17 @@
     <div class="addItem">
         <p>Добавить товар</p>
         <form method="post" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="name" required>
-            <input type="text" name="price" placeholder="price" required>
-            <textarea name="description" placeholder="description" required></textarea>
-            <input type="text" name="vendorCode" placeholder="vendor code" required>
+            <input type="text" name="name" placeholder="name" required value="<?= $_SESSION['name'] ?>">
+            <input type="number" name="price" placeholder="price" required >
+            <textarea name="description" placeholder="description" required><?= $_SESSION['description'] ?></textarea>
+            <input type="text" name="vendorCode" placeholder="vendor code" required value="<?= $_SESSION['vendorCode'] ?>">
             <select name="category" required>
-                <option selected disabled>select category</option>
-                <option value="1">cookies</option>
-                <option value="2">chocolate</option>
-                <option value="5">waffles</option>
-                <option value="7">marshmallow</option>
-                <option value="9">cakes</option>
+                <option <?php if(empty($_SESSION['category'])) echo 'selected'?> disabled>select category</option>
+                <option <?php if($_SESSION['category'] == 1) echo 'selected'?> value="1">cookies</option>
+                <option <?php if($_SESSION['category'] == 2) echo 'selected'?> value="2">chocolate</option>
+                <option <?php if($_SESSION['category'] == 5) echo 'selected'?> value="5">waffles</option>
+                <option <?php if($_SESSION['category'] == 7) echo 'selected'?> value="7">marshmallow</option>
+                <option <?php if($_SESSION['category'] == 9) echo 'selected'?> value="9">cakes</option>
             </select>
             <input type="file" name="image" required accept="image/*">
             <input type="submit" value="Send">
