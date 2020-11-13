@@ -11,6 +11,10 @@ header {
     padding: 0.8rem;
 }
 
+main {
+    display: flex;
+}
+
 a {
     text-decoration: none;
     color: #dcdcdc;;
@@ -18,7 +22,7 @@ a {
 
 nav {
     background-color: #3d3d3d;
-    width: 20%;
+    width: 10%;
     padding: 30px;
     color: #e3e3dd;
 }
@@ -63,16 +67,20 @@ nav a:hover {
 
 .products {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.products-description {
+    display: flex;
+    flex-direction: column;
 }
 
 /*настроить флекс*/
 table.product {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
     background: #dcdcdc;
     width: 300px;
+    margin-bottom: 1rem;
 }
 
 table.product th {
@@ -135,8 +143,6 @@ div.admin{
 }
 footer {
     text-align: center;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background-color: #3d3d3d;
     color: #dcdcdc;
