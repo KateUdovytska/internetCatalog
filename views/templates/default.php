@@ -13,9 +13,19 @@
 </head>
 <body>
 <header>
-    <h1><a href="?">Sweet Dreams</a></h1>
+    <h1><a href="/">Sweet Dreams</a></h1>
 </header>
 <main>
+    <nav>
+        <h2>Categories:</h2>
+        <ul>
+            <li><a href="?category=cookies">Печенье</a></li>
+            <li><a href="?category=cakes">Торты</a></li>
+            <li><a href="?category=waffles">Вафли</a></li>
+            <li><a href="?category=chocolate">Шоколад</a></li>
+            <li><a href="?category=marshmallow">Зефир</a></li>
+        </ul>
+    </nav>
     <?php if (isset($this->page)): ?>
         <?php include_once 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . $this->page . '.php' ?>
     <?php endif; ?>

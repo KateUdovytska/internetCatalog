@@ -1,14 +1,4 @@
 <?php session_unset(); ?>
-<nav>
-    <h2>Categories:</h2>
-    <ul>
-        <li><a href="?category=cookies">Печенье</a></li>
-        <li><a href="?category=cakes">Торты</a></li>
-        <li><a href="?category=waffles">Вафли</a></li>
-        <li><a href="?category=chocolate">Шоколад</a></li>
-        <li><a href="?category=marshmallow">Зефир</a></li>
-    </ul>
-</nav>
 <div class="products-description">
     <h2>All products</h2>
     <div class="products">
