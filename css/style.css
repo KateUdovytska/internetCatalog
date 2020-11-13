@@ -133,8 +133,8 @@ tr.image img {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0 auto;
-    height: calc(100vh - 7rem);
+    margin: 1rem auto;
+    height: calc(100vh - 9rem);
 }
 
 div.admin {
@@ -168,6 +168,10 @@ div.admin > form > input {
     margin: 5px 0;
     background-color: #e3e3dd;
     border: #3d3d3d 1px solid;
+}
+
+.addItem > form > input[type=submit] {
+    background-color: #80C8A0;
 }
 
 .addItem > form > textarea {
