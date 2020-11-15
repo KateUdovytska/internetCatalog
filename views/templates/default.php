@@ -16,15 +16,27 @@
     <h1><a href="/">Sweet Dreams</a></h1>
 </header>
 <main>
-    <nav>
-        <h2>Categories:</h2>
-        <ul>
-            <li><a href="?category=cookies">Печенье</a></li>
-            <li><a href="?category=cakes">Торты</a></li>
-            <li><a href="?category=waffles">Вафли</a></li>
-            <li><a href="?category=chocolate">Шоколад</a></li>
-            <li><a href="?category=marshmallow">Зефир</a></li>
-        </ul>
+    <?php if ($_GET['page'] == 'admin' && $_SESSION['check']): ?>
+        <nav>
+            <h2>Categories:</h2>
+            <ul>
+                <li><a href="#">Панель пользователей</a></li>
+                <li><a href="#">Панель товаров</a></li>
+                <li><a href="#">Все товары</a></li>
+            </ul>
+        </nav>
+    <?php elseif (!$_GET['page'] == 'admin') : ?>
+        <nav>
+            <h2>Categories:</h2>
+            <ul>
+                <li><a href="?category=cookies">Печенье</a></li>
+                <li><a href="?category=cakes">Торты</a></li>
+                <li><a href="?category=waffles">Вафли</a></li>
+                <li><a href="?category=chocolate">Шоколад</a></li>
+                <li><a href="?category=marshmallow">Зефир</a></li>
+            </ul>
+        </nav>
+    <?php endif; ?>
     </nav>
     <?php if (isset($this->page)): ?>
         <?php include_once 'views' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . $this->page . '.php' ?>
