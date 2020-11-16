@@ -69,6 +69,14 @@ class Controllers
         }
         Router::redirect();
     }
+    public function logout()
+    {
+        $logout = filter_input(INPUT_POST,'logout');
+        if(isset($logout)) {
+            session_destroy();
+        }
+        Router::redirect();
+    }
 
     /**
      * add()
