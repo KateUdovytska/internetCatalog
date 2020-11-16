@@ -32,8 +32,8 @@
             <?php foreach ($data as $product): ?>
                 <tr>
                     <td><?= $product['name'] ?></td>
-                    <td class="td_img"><img src="<?= IMAGES_DIR . $product['image_name'] ?>"
-                                            alt="<?= $product['image_name'] ?>" class="img_table"></td>
+                    <td class="td_img"><div id="square"><img src="<?= IMAGES_DIR . $product['image_name'] ?>"
+                                                                alt="<?= $product['image_name'] ?>" class="img_table"></div></td>
                     <td><?= $product['price'] ?>&#8372;</td>
                     <td><?= $product['id'] ?></td>
                     <td>
