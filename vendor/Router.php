@@ -15,6 +15,9 @@ class Router
         $action = 'main';
         if ($_GET['page'] === 'admin') {
             $action = 'admin';
+            if ($_POST['logout']){
+                $action = 'logout';
+            }
             if (isset($_POST['login'])) {
                 $action = 'login';
             } elseif (isset($_POST['price'])) {
