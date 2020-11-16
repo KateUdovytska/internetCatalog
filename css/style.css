@@ -414,3 +414,14 @@ div.admin  form > input {
     font-family: 'Modak';
     src: url("../fonts/Modak-Regular.ttf");
 }
+#square{
+    transition-property: transform;
+    transition-duration: 2s;
+    transition-delay: 0.2s;
+    position: relative;
+}
+
+#square:hover{
+    transform: scale(2);
+    z-index: 55;
+}
