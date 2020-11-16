@@ -39,7 +39,8 @@
                     <td>
                         <form method="POST">
                             <input type="hidden" name="delete_id" value="<?= $product['id'] ?>">
-                            <button type="submit" value="del" class="delete"><i class="far fa-trash-alt trash_img"></i></button>
+                            <button type="submit" value="del" class="delete"><i class="far fa-trash-alt trash_img"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -48,11 +49,13 @@
     </div>
 <?php else : ?>
     <div class='admin'>
-        <p>Войти в панель администратора</p>
-        <form method='post'>
-            <input type='text' placeholder='login' class='input' name='login' required><br>
-            <input type='password' placeholder='password' class='input' name='password' required><br>
-            <input type='submit' value='Sign in' class='button'>
-        </form>
+        <div class="admin-box">
+            <p>Войти в панель администратора</p>
+            <form method='post'>
+                <input type='text' placeholder='login' class='input' name='login' required><br>
+                <input type='password' placeholder='password' class='input' name='password' required><br>
+                <input type='submit' value='Sign in' class='button'>
+            </form>
+        </div>
     </div>
 <?php endif; ?>

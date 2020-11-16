@@ -7,6 +7,10 @@
     --product-hover: rgba(0, 0, 0, .8);
     --a_color: #dcdcdc;
     --trash_bg: rgba(255, 7, 3, .9);
+    --bg: rgba(220, 220, 220, .7);
+    --forms-item_bg: rgba(255,255,255, .8);
+    --from-submit_bg: rgba(128,200,160,1);
+    --form-submit_bg_hover: rgb(119, 192, 151);
 }
 
 * {
@@ -152,7 +156,7 @@ main > :last-child {
 }
 
 .table_products {
-    background-color: rgba(220, 220, 220, .7);
+    background-color: var(--bg);
     margin: 10px;
     border: 2px solid #000;
     border-radius: 10px;
@@ -224,7 +228,7 @@ caption {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgba(220, 220, 220, .7);
+    background-color: var(--bg);
     backdrop-filter: blur(2px);
     height: initial;
 }
@@ -303,12 +307,44 @@ div.admin {
     font-size: 20px;
     margin: 0 auto;
     height: calc(100vh - 7rem);
+
+
 }
 
-div.admin > form > input {
+div.admin > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    background-color: var(--bg);
+    padding:20px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    width: max-content;
+    height: max-content;
+}
+.admin-box > p {
+    padding-bottom: 30px;
+}
+div.admin  form {
+    display: flex;
+    flex-direction: column;
+}
+div.admin > div .button {
+    background-color: var(--from-submit_bg);
+    align-self: center;
+    padding: 5px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+div.admin > div .button:hover {
+    background-color: var(--form-submit_bg_hover);
+}
+div.admin  form > input {
     padding: 5px 3px;
     margin: 5px 0;
-    background-color: #e3e3dd;
+    background-color: var(--forms-item_bg);
     border: #3d3d3d 1px solid;
 }
 
@@ -317,6 +353,10 @@ div.admin > form > input {
     top: 0;
     left: 0;
     height: max-content;
+    background-color: var(--bg);
+    backdrop-filter: blur(2px);
+    border: 2px solid #000;
+    margin: 10px 10px 10px 20px;
 }
 
 .addItem > form {
@@ -331,24 +371,29 @@ div.admin > form > input {
 .addItem > form > input {
     padding: 5px 3px;
     margin: 5px 0;
-    background-color: #e3e3dd;
+    background-color: var(--forms-item_bg);
     border: #3d3d3d 1px solid;
 }
 
 .addItem > form > input[type=submit] {
-    background-color: #80C8A0;
+    background-color: var(--from-submit_bg);
+    cursor: pointer;
+}
+.addItem > form > input[type=submit]:hover {
+    background-color: var(--form-submit_bg_hover);
 }
 
 .addItem > form > textarea {
     height: 100px;
     size: 20px;
     min-width: 208.8px;
-    background-color: #e3e3dd;
+    background-color: var(--forms-item_bg);
 }
 
 .addItem > form > select {
-    background-color: #e3e3dd;
+    background-color: var(--forms-item_bg);
     border: #3d3d3d 1px solid;
+    cursor: pointer;
 }
 
 .addItem > form > option {
