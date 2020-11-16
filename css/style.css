@@ -342,6 +342,7 @@ div.admin > form > input {
 .addItem > form > textarea {
     height: 100px;
     size: 20px;
+    min-width: 208.8px;
     background-color: #e3e3dd;
 }
 
