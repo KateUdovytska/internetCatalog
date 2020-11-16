@@ -30,6 +30,7 @@ body {
     grid-template-rows: 0fr 1fr 0fr;
     background-image: url("../images/bg_candy.jpg");
     background-repeat: repeat;
+    position: relative;
 }
 a {
     text-decoration: none;
@@ -130,7 +131,7 @@ main > :first-child {
 }
 
 main > :last-child {
-    width: 90%;
+    /*width: 90%;*/
     margin: 0 auto;
 }
 
@@ -346,6 +347,19 @@ div.admin  form > input {
     margin: 5px 0;
     background-color: var(--forms-item_bg);
     border: #3d3d3d 1px solid;
+}
+.admin_logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.admin_logout input[type="submit"] {
+    background-color: var(--from-submit_bg);
+    padding: 2.5px 10px;
+    border-radius: 10px;
+}
+.admin_logout input[type="submit"]:hover {
+    background-color: var(--form-submit_bg_hover)!important;
 }
 
 .addItem {
