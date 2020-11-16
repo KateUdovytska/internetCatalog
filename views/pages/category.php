@@ -1,22 +1,10 @@
 <div class="category">
     <?php foreach ($data as $product): ?>
-        <table class="product">
-            <tr>
-                <th><?= $product['name'] ?></th>
-            </tr>
-            <tr class="image">
-                <td>
-                    <img src="<?= IMAGES_DIR . $product['image_name'] ?>" alt="<?= $product['image_name'] ?>">
-                </td>
-            </tr>
-            <tr class="price">
-                <td><?= $product['price'] ?></td>
-            </tr>
-            <tr class="readMore">
-                <td>
-                    <button><a href="?id=<?= $product['id'] ?>">Read more</a></button>
-                </td>
-            </tr>
-        </table>
+        <div class="product">
+            <div class="product-box_h2"><h2><?= $product['name'] ?></h2></div>
+            <div class="product-box_img"><img src="<?= IMAGES_DIR . $product['image_name'] ?>" alt="<?= $product['image_name'] ?>"></div>
+            <div class="product_price"><p>price: <?= $product['price'] ?> &#8372;</p></div>
+            <div class="product_butt"><a href="?id=<?= $product['id'] ?>">Read more</a></div>
+        </div>
     <?php endforeach; ?>
 </div>

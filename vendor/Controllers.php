@@ -83,8 +83,13 @@ class Controllers
             'vendorCode' => filter_input(INPUT_POST, 'vendorCode'),
             'price' => filter_input(INPUT_POST, 'price'),
         ];
-        $this->products->addProduct($newProduct);
-        Router::redirect();
+        //$this->products->addProduct($newProduct);
+        if($this->products->addProduct($newProduct))
+        {
+            Router::redirect();
+        }else{
+            $this->admin();
+        }
     }
 
     /**
@@ -108,5 +113,15 @@ class Controllers
         $this->view->render($this->admin->getAllUsers());
     }
 
-
+    public function deleteUser()
+    {
+        $id=filter_input(INPUT_POST, 'delete_user');
+        $this->admin->deleteUser($id);
+        Router::redirect();
+    }
+    public function addUser()
+    {
+        $this->admin->addNewUser();
+        Router::redirect();
+    }
 }
