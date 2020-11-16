@@ -108,5 +108,15 @@ class Controllers
         $this->view->render($this->admin->getAllUsers());
     }
 
-
+    public function deleteUser()
+    {
+        $id=filter_input(INPUT_POST, 'delete_user');
+        $this->admin->deleteUser($id);
+        Router::redirect();
+    }
+    public function addUser()
+    {
+        $this->admin->addNewUser();
+        Router::redirect();
+    }
 }
