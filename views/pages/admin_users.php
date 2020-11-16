@@ -1,4 +1,4 @@
-<div class="addNewUser">
+<div class="addItem">
     <p>Добавить пользователя</p>
     <form method="post" class="registrationForm">
         <input type="text" name="userLogin" placeholder="login" required>
@@ -8,7 +8,7 @@
     </form>
 </div>
 
-<div class="userList">
+<div class="table_products">
     <table>
         <tr>
             <th>№</th>
