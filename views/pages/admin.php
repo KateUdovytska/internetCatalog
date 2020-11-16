@@ -47,6 +47,13 @@
             <?php endforeach; ?>
         </table>
     </div>
+
+    <div class="admin_logout">
+        <form action="" method="post">
+            <input type="hidden" name="logout" value="true">
+            <input type="submit" value="Log out">
+        </form>
+    </div>
 <?php else : ?>
     <div class='admin'>
         <div class="admin-box">
