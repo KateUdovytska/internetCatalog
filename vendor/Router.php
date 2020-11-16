@@ -21,12 +21,19 @@ class Router
                 $action = 'add';
             } elseif (isset($_POST['delete_id'])) {
                 $action = 'delete';
+            } elseif (isset($_POST['delete_user'])){
+                $action = 'deleteUser';
+            } elseif (isset($_POST['userLogin'])){
+                $action = 'addUser';
             }
         } elseif (isset($_GET['category'])) {
             $action = 'category';
         } elseif (isset($_GET['id'])) {
             $action = 'item';
         }
+    // elseif ($_GET['extension'] == 'users'){
+    //            $action = 'adminUsers'; //TODO check
+    //        }
         $controller->$action();
     }
 }

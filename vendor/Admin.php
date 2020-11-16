@@ -4,6 +4,7 @@
 class Admin
 {
     private $db;
+    private $users;
 
     public function __construct()
     {
@@ -26,5 +27,42 @@ class Admin
             }
         }
         return false;
+    }
+
+    public function addNewUser()
+    {
+        $login = filter_input(INPUT_POST, 'userLogin');
+        $queryLogin = "SELECT * FROM admin WHERE admin.login = '$login';";
+        $result = $this->db->query($queryLogin);
+        $row_cnt = mysqli_num_rows($result);
+
+        if($row_cnt == 0){
+            $pass = filter_input(INPUT_POST, 'userPassword');
+            $confPass = filter_input(INPUT_POST, 'confPassword');  ////!!!!11
+            if($pass === $confPass){
+                $password = password_hash($pass, PASSWORD_DEFAULT);
+                $query = "INSERT INTO admin (id, login, password) VALUES (NULL, '$login', '$password');";
+                return $this->db->query($query);
+            }
+        }
+        return false;
+    }
+
+    public function getAllUsers()
+    {
+        $query = "SELECT * FROM admin ;";
+        $result = $this->db->query($query);
+        if ($result) {
+            while ($tmp = $result->fetch_assoc()) {
+                $this->users[] = $tmp;
+            }
+            return $this->users;
+        }
+    }
+
+    public function deleteUser($id)
+    {
+        $query = "DELETE FROM admin WHERE admin.id = $id;";
+        return $this->db->query($query);
     }
 }

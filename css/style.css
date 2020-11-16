@@ -1,30 +1,45 @@
+:root {
+    --background-color: #000; /* #3d3d3d */
+    --product-butt_bg-hover: rgba(0, 85, 163, 1);
+    --product-butt_bg: rgba(0, 0, 0, 1);
+    --nav-a-hover: rgba(0, 85, 163, 1);
+    --product-tr-hover: rgba(0, 85, 163, .3);
+    --product-hover: rgba(0, 0, 0, .8);
+    --a_color: #dcdcdc;
+    --trash_bg: rgba(255, 7, 3, .9);
+    --bg: rgba(220, 220, 220, .7);
+    --forms-item_bg: rgba(255,255,255, .8);
+    --from-submit_bg: rgba(128,200,160,1);
+    --form-submit_bg_hover: rgb(119, 192, 151);
+}
+
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    font-family: "Gill Sans", sans-serif;
 }
 
-header {
-    text-align: center;
-    background-color: #3d3d3d;
-    color: #dcdcdc;
-    font-size: 1.5rem;
-    height: 5rem;
-    line-height: 5rem;
+html, body {
+    height: 100%;
 }
 
-main {
-    display: flex;
-    height: calc(100% - 7rem);
-    align-items: flex-start;
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 1fr 0fr;
+    background-image: url("../images/bg_candy.jpg");
+    background-repeat: repeat;
 }
-
 a {
     text-decoration: none;
-    color: #dcdcdc;;
+    color: var(--a_color);
 }
+/*HEADER START*/
 
+/*nav*/
 nav {
-    background-color: #3d3d3d;
+    background-color: var(--background-color);
     width: 10%;
     padding: 30px;
     color: #e3e3dd;
@@ -49,94 +64,241 @@ nav li {
 }
 
 nav a {
+    color: #fff;
     text-decoration: none;
     display: block;
     font-size: 18px;
     padding: 5px;
     position: relative;
-    transition: .3s linear;
+    transition: color .3s linear;
 }
 
 nav a:after {
     position: absolute;
     right: 5px;
-    color: white;
     transition: .2s linear;
 }
 
 nav a:hover {
-    background: #80C8A0;
-    color: white;
+    background: var(--nav-a-hover);
+}
+/*==========*/
+.name-company {
+    font-family: Modak;
+    font-weight: normal;
+    color: #0086ff;
+}
+header {
+    text-align: center;
+    background-color: var(--background-color);
+    color: #dcdcdc;
+    font-size: 1.5rem;
+    height: 5rem;
+    line-height: 5rem;
 }
 
-.products {
+header {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    align-content: center;
+
 }
+
+.logo {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    justify-self: flex-start;
+    top: 10px;
+    left: 40px;
+}
+
+/*HEADER END*/
+/*MAIN START*/
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-flow: row;
+    height: 100%;
+    align-items: stretch;
+}
+
+main > :first-child {
+    width: min-content;
+    height: initial;
+}
+
+main > :last-child {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/*table_product*/
 
 .products-description {
     display: flex;
     flex-direction: column;
 }
-
-.products-description h2 {
-    margin: 1rem 1.5rem;
-    padding: 1rem;
-    background-color: #3d3d3d;
-    color: #dcdcdc;
+.img_table {
+    position: relative;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    height: 50px;
+    width: 100%;
+    transition-property: all;
+    transition-duration: 1s;
 }
 
-table.product {
-    background: #dcdcdc;
-    width: 300px;
-    margin-bottom: 1rem;
+.td_img {
+    width: 100px;
 }
 
-table.product th {
-    background: #3d3d3d;
-    color: #F5F5F5;
-    height: 80px;
-}
-
-table.product td {
-    width: 300px;
+.table_products {
+    background-color: var(--bg);
+    margin: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    border-collapse: collapse;
     text-align: center;
+    backdrop-filter: blur(2px);
+}
+
+caption {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #000;
+    width: 100%;
+    color: #fff;
+}
+
+.table_products tr, .table_products td {
+    border: 2px solid #000;
+}
+
+.table_products tr:hover {
+    background-color: var(--product-tr-hover);
+}
+
+.table_products tr > td:first-child {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.table_products td {
+    height: 60px;
+    min-width: 50px;
+}
+.trash_img {
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+    padding: 5px;
+    cursor: pointer;
+}
+.trash_img:before {
+    font-size: 26px;
+}
+.trash_img:hover{
+    background-color: var(--trash_bg);
+}
+/*==========*/
+
+/*category*/
+.category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-evenly;
+    padding: 5% 2.5%;
+}
+
+.category > * {
+    width: 300px
+}
+
+.product {
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 1.5% 1.5%;
+    margin: 2.5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--bg);
+    backdrop-filter: blur(2px);
+    height: initial;
+}
+
+.product-box_h2 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    min-height: 100px;
+    text-align: center;
+}
+
+.product-box_img img {
+    display: block;
+    height: 200px;
+    max-width: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.product-box_description {
+    margin: 10px auto 20px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+}
+.product-box_description > pre {
+    white-space:pre-line;
+}
+.product_price {
+    text-align: center;
+    padding: 10px 0 25px 0;
+}
+
+.product_price p {
+    font-weight: bold;
+}
+
+.product_butt {
+    text-align: center;
+    width: max-content;
     margin: 0 auto;
 }
 
-.product tr {
-    border: red 3px solid;
+.product_butt a {
+    border-radius: 10px;
+    padding: 5px 30px;
+    background-color: var(--product-butt_bg);
 }
 
-tr.image img {
-    padding: 10px 0;
-    width: 250px;
-    height: 200px;
+.product_butt a:hover {
+    background-color: var(--product-butt_bg-hover);
 }
 
-.readMore a {
-    color: #3d3d3d;
+/*==========*/
+/*MAIN END*/
+/*FOOTER START*/
+footer {
+    text-align: center;
+    width: 100%;
+    background-color: var(--background-color);
+    color: #dcdcdc;
+    font-size: 1.2rem;
+    height: 2rem;
+    line-height: 2rem;
 }
 
-.readMore button {
-    background-color: #80C8A0;
-    padding: 10px;
-    margin: 10px 0;
-}
+/*FOOTER END*/
 
-.price {
-    color: #2a7bc8;
-}
-
-.category {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 1rem auto;
-    height: calc(100vh - 9rem);
-}
-
+/*ADMIN START*/
 div.admin {
     display: flex;
     justify-content: center;
@@ -145,13 +307,56 @@ div.admin {
     font-size: 20px;
     margin: 0 auto;
     height: calc(100vh - 7rem);
+
+
 }
 
-div.admin > form > input {
+div.admin > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    background-color: var(--bg);
+    padding:20px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    width: max-content;
+    height: max-content;
+}
+.admin-box > p {
+    padding-bottom: 30px;
+}
+div.admin  form {
+    display: flex;
+    flex-direction: column;
+}
+div.admin > div .button {
+    background-color: var(--from-submit_bg);
+    align-self: center;
+    padding: 5px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+div.admin > div .button:hover {
+    background-color: var(--form-submit_bg_hover);
+}
+div.admin  form > input {
     padding: 5px 3px;
     margin: 5px 0;
-    background-color: #e3e3dd;
+    background-color: var(--forms-item_bg);
     border: #3d3d3d 1px solid;
+}
+
+.addItem {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: max-content;
+    background-color: var(--bg);
+    backdrop-filter: blur(2px);
+    border: 2px solid #000;
+    margin: 10px 10px 10px 20px;
 }
 
 .addItem > form {
@@ -166,23 +371,29 @@ div.admin > form > input {
 .addItem > form > input {
     padding: 5px 3px;
     margin: 5px 0;
-    background-color: #e3e3dd;
+    background-color: var(--forms-item_bg);
     border: #3d3d3d 1px solid;
 }
 
 .addItem > form > input[type=submit] {
-    background-color: #80C8A0;
+    background-color: var(--from-submit_bg);
+    cursor: pointer;
+}
+.addItem > form > input[type=submit]:hover {
+    background-color: var(--form-submit_bg_hover);
 }
 
 .addItem > form > textarea {
     height: 100px;
     size: 20px;
-    background-color: #e3e3dd;
+    min-width: 208.8px;
+    background-color: var(--forms-item_bg);
 }
 
 .addItem > form > select {
-    background-color: #e3e3dd;
+    background-color: var(--forms-item_bg);
     border: #3d3d3d 1px solid;
+    cursor: pointer;
 }
 
 .addItem > form > option {
@@ -192,16 +403,14 @@ div.admin > form > input {
 }
 
 .addItem > p {
-    margin-left: 35%;
+    text-align: center;
     margin-top: 10px;
 }
 
-footer {
-    text-align: center;
-    width: 100%;
-    background-color: #3d3d3d;
-    color: #dcdcdc;
-    font-size: 1.2rem;
-    height: 2rem;
-    line-height: 2rem;
+/*ADMIN END*/
+
+/*FONTS*/
+@font-face {
+    font-family: 'Modak';
+    src: url("../fonts/Modak-Regular.ttf");
 }

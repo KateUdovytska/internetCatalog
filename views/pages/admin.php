@@ -18,38 +18,44 @@
             <input type="submit" value="Send">
         </form>
     </div>
-    <div class="products">
-        <?php foreach ($data as $id => $product): ?>
-            <table class="product">
+
+    <div class="products-description">
+        <table class="table_products">
+            <caption>All Products</caption>
+            <tr>
+                <th>name</th>
+                <th>img</th>
+                <th>price</th>
+                <th>ID</th>
+                <th>Action</th>
+            </tr>
+            <?php foreach ($data as $product): ?>
                 <tr>
-                    <th><?= $product['name'] ?></th>
-                </tr>
-                <tr class="image">
-                    <td>
-                        <img src="<?= IMAGES_DIR . $product['image_name'] ?>" alt="<?= $product['image_name'] ?>">
-                    </td>
-                </tr>
-                <tr class="price">
-                    <td><?= $product['price'] ?></td>
-                </tr>
-                <tr class="delete">
+                    <td><?= $product['name'] ?></td>
+                    <td class="td_img"><img src="<?= IMAGES_DIR . $product['image_name'] ?>"
+                                            alt="<?= $product['image_name'] ?>" class="img_table"></td>
+                    <td><?= $product['price'] ?>&#8372;</td>
+                    <td><?= $product['id'] ?></td>
                     <td>
                         <form method="POST">
                             <input type="hidden" name="delete_id" value="<?= $product['id'] ?>">
-                            <button type="submit" value="del" class="delete"><i class="far fa-trash-alt"></i></button>
+                            <button type="submit" value="del" class="delete"><i class="far fa-trash-alt trash_img"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
-            </table>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </table>
     </div>
 <?php else : ?>
     <div class='admin'>
-        <p>Войти в панель администратора</p>
-        <form method='post'>
-            <input type='text' placeholder='login' class='input' name='login' required><br>
-            <input type='password' placeholder='password' class='input' name='password' required><br>
-            <input type='submit' value='Sign in' class='button'>
-        </form>
+        <div class="admin-box">
+            <p>Войти в панель администратора</p>
+            <form method='post'>
+                <input type='text' placeholder='login' class='input' name='login' required><br>
+                <input type='password' placeholder='password' class='input' name='password' required><br>
+                <input type='submit' value='Sign in' class='button'>
+            </form>
+        </div>
     </div>
 <?php endif; ?>

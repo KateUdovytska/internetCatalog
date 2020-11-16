@@ -13,7 +13,8 @@
 </head>
 <body>
 <header>
-    <h1><a href="/">Sweet Dreams</a></h1>
+    <a href="/"><img src="images/logo.png" alt="logo" class="logo"></a>
+    <h1><a href="/" class="name-company">Sweet Dreams</a></h1>
 </header>
 <main>
     <?php if ($_GET['page'] == 'admin' && $_SESSION['check']): ?>
