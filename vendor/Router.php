@@ -21,6 +21,10 @@ class Router
                 $action = 'add';
             } elseif (isset($_POST['delete_id'])) {
                 $action = 'delete';
+            } elseif (isset($_POST['delete_user'])){
+                $action = 'deleteUser';
+            } elseif (isset($_POST['userLogin'])){
+                $action = 'addUser';
             }
         } elseif (isset($_GET['category'])) {
             $action = 'category';
