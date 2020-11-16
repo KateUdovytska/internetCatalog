@@ -6,6 +6,7 @@
     --product-tr-hover: rgba(0, 85, 163, .3);
     --product-hover: rgba(0, 0, 0, .8);
     --a_color: #dcdcdc;
+    --trash_bg: rgba(255, 7, 3, .9);
 }
 
 * {
@@ -176,15 +177,28 @@ caption {
     background-color: var(--product-tr-hover);
 }
 
-.table_products tr > td {
+.table_products tr > td:first-child {
     text-align: left;
     padding-left: 10px;
 }
 
 .table_products td {
     height: 60px;
+    min-width: 50px;
 }
-
+.trash_img {
+    display: block;
+    margin: 0 auto;
+    width: max-content;
+    padding: 5px;
+    cursor: pointer;
+}
+.trash_img:before {
+    font-size: 26px;
+}
+.trash_img:hover{
+    background-color: var(--trash_bg);
+}
 /*==========*/
 
 /*category*/
@@ -298,6 +312,13 @@ div.admin > form > input {
     border: #3d3d3d 1px solid;
 }
 
+.addItem {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: max-content;
+}
+
 .addItem > form {
     width: 80%;
     margin: 10px auto;
@@ -336,7 +357,7 @@ div.admin > form > input {
 }
 
 .addItem > p {
-    margin-left: 35%;
+    text-align: center;
     margin-top: 10px;
 }
 
