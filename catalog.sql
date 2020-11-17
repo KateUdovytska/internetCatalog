@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 12 2020 г., 21:06
+-- Время создания: Ноя 18 2020 г., 01:07
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.4.5
 
@@ -28,17 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `login` varchar(80) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` bigint UNSIGNED NOT NULL,
+  `login` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `admin`
 --
 
 INSERT INTO `admin` (`id`, `login`, `password`) VALUES
-(1, 'admin', '$2y$10$10oTfR1kiqEYnj4hgFLDguQ2AAxloWomRC3oeXbr6g1I4vPVLmnxq');
+(1, 'admin', '$2y$10$10oTfR1kiqEYnj4hgFLDguQ2AAxloWomRC3oeXbr6g1I4vPVLmnxq'),
+(4, 'misha', '$2y$10$cV52N.yOMvLXtWJcVUhV.ONmNSCLua7.4jOK5dhQ2LLgfEWAPPGYG');
 
 -- --------------------------------------------------------
 
@@ -104,6 +105,12 @@ INSERT INTO `products` (`id`, `name`, `price`, `description`, `vendor_code`, `im
 --
 
 --
+-- Индексы таблицы `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `categories`
 --
 ALTER TABLE `categories`
@@ -123,16 +130,22 @@ ALTER TABLE `products`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
