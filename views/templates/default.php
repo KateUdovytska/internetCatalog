@@ -19,11 +19,20 @@
 <main>
     <?php if ($_GET['page'] == 'admin' && $_SESSION['check']): ?>
         <nav>
-            <h2>Categories:</h2>
             <ul>
-                <li><a href="#">Панель пользователей</a></li>
-                <li><a href="#">Панель товаров</a></li>
-                <li><a href="#">Все товары</a></li>
+                <li><a href="?page=admin&admin_page=add_user">Панель пользователей</a></li>
+                <li><a href="?page=admin&admin_page=add_product">Добавить товар</a></li>
+                <li><a href="?page=admin&admin_page=add_category">Панель категорий</a></li>
+                <li><a href="?page=admin">На главную</a></li>
+                <li><a href="/">Покинуть панель администратора</a></li>
+            </ul>
+            <h2>Категории:</h2>
+            <ul>
+                <li><a href="?page=admin&category=cookies">Печенье</a></li>
+                <li><a href="?page=admin&category=cakes">Торты</a></li>
+                <li><a href="?page=admin&category=waffles">Вафли</a></li>
+                <li><a href="?page=admin&category=chocolate">Шоколад</a></li>
+                <li><a href="?page=admin&category=marshmallow">Зефир</a></li>
             </ul>
         </nav>
     <?php elseif (!$_GET['page'] == 'admin') : ?>
@@ -46,12 +55,5 @@
 <footer>
     &copy; junstudio 2020
 </footer>
-<?php if (isset($_SESSION['message'])): ?>
-    <script>
-        window.onload = function () {
-            alert("<?= $_SESSION['message'] ?>");
-        }
-    </script>
-<?php endif; ?>
 </body>
 </html>

@@ -15,8 +15,10 @@ class Router
         $action = 'main';
         if ($_GET['page'] === 'admin') {
             $action = 'admin';
-            if ($_POST['logout']){
+            if ($_POST['logout']) {
                 $action = 'logout';
+            } elseif (isset($_GET['category'])) {
+                $action = 'category';
             }
             if (isset($_POST['login'])) {
                 $action = 'login';
@@ -24,19 +26,25 @@ class Router
                 $action = 'add';
             } elseif (isset($_POST['delete_id'])) {
                 $action = 'delete';
-            } elseif (isset($_POST['delete_user'])){
+            } elseif (isset($_POST['delete_user_id'])) {
                 $action = 'deleteUser';
-            } elseif (isset($_POST['userLogin'])){
+            } elseif (isset($_POST['delete_category_id'])) {
+                $action = 'deleteCategory';
+            } elseif (isset($_POST['delete_user'])) {
+                $action = 'deleteUser';
+            } elseif (isset($_POST['userLogin'])) {
                 $action = 'addUser';
+            } elseif (isset($_POST['name'])) {
+                $action = 'addCategory';
             }
         } elseif (isset($_GET['category'])) {
             $action = 'category';
         } elseif (isset($_GET['id'])) {
             $action = 'item';
         }
-    // elseif ($_GET['extension'] == 'users'){
-    //            $action = 'adminUsers'; //TODO check
-    //        }
+        // elseif ($_GET['extension'] == 'users'){
+        //            $action = 'adminUsers'; //TODO check
+        //        }
         $controller->$action();
     }
 }

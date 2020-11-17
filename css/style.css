@@ -8,8 +8,8 @@
     --a_color: #dcdcdc;
     --trash_bg: rgba(255, 7, 3, .9);
     --bg: rgba(220, 220, 220, .7);
-    --forms-item_bg: rgba(255,255,255, .8);
-    --from-submit_bg: rgba(128,200,160,1);
+    --forms-item_bg: rgba(255, 255, 255, .8);
+    --from-submit_bg: rgba(128, 200, 160, 1);
     --form-submit_bg_hover: rgb(119, 192, 151);
 }
 
@@ -32,10 +32,12 @@ body {
     background-repeat: repeat;
     position: relative;
 }
+
 a {
     text-decoration: none;
     color: var(--a_color);
 }
+
 /*HEADER START*/
 
 /*nav*/
@@ -48,7 +50,7 @@ nav {
 }
 
 nav h2 {
-    margin: 0 0 10px;
+    margin: 1rem 0 10px;
     padding: 0 5px;
     position: relative;
 }
@@ -83,12 +85,14 @@ nav a:after {
 nav a:hover {
     background: var(--nav-a-hover);
 }
+
 /*==========*/
 .name-company {
     font-family: Modak;
     font-weight: normal;
     color: #0086ff;
 }
+
 header {
     text-align: center;
     background-color: var(--background-color);
@@ -140,7 +144,10 @@ main > :last-child {
 .products-description {
     display: flex;
     flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
 }
+
 .img_table {
     position: relative;
     top: 0;
@@ -191,6 +198,7 @@ caption {
     height: 60px;
     min-width: 50px;
 }
+
 .trash_img {
     display: block;
     margin: 0 auto;
@@ -198,12 +206,15 @@ caption {
     padding: 5px;
     cursor: pointer;
 }
+
 .trash_img:before {
     font-size: 26px;
 }
-.trash_img:hover{
+
+.trash_img:hover {
     background-color: var(--trash_bg);
 }
+
 /*==========*/
 
 /*category*/
@@ -250,15 +261,18 @@ caption {
     border-radius: 10px;
     margin: 0 auto;
 }
+
 .product-box_description {
     margin: 10px auto 20px;
     font-weight: bold;
     font-size: 14px;
     color: #000;
 }
+
 .product-box_description > pre {
-    white-space:pre-line;
+    white-space: pre-line;
 }
+
 .product_price {
     text-align: center;
     padding: 10px 0 25px 0;
@@ -319,19 +333,22 @@ div.admin > div {
     align-items: center;
     backdrop-filter: blur(2px);
     background-color: var(--bg);
-    padding:20px;
+    padding: 20px;
     border: 2px solid #000;
     border-radius: 10px;
     width: max-content;
     height: max-content;
 }
+
 .admin-box > p {
     padding-bottom: 30px;
 }
-div.admin  form {
+
+div.admin form {
     display: flex;
     flex-direction: column;
 }
+
 div.admin > div .button {
     background-color: var(--from-submit_bg);
     align-self: center;
@@ -339,27 +356,32 @@ div.admin > div .button {
     border-radius: 10px;
     cursor: pointer;
 }
+
 div.admin > div .button:hover {
     background-color: var(--form-submit_bg_hover);
 }
-div.admin  form > input {
+
+div.admin form > input {
     padding: 5px 3px;
     margin: 5px 0;
     background-color: var(--forms-item_bg);
     border: #3d3d3d 1px solid;
 }
+
 .admin_logout {
     position: absolute;
     top: 20px;
     right: 20px;
 }
+
 .admin_logout input[type="submit"] {
     background-color: var(--from-submit_bg);
     padding: 2.5px 10px;
     border-radius: 10px;
 }
+
 .admin_logout input[type="submit"]:hover {
-    background-color: var(--form-submit_bg_hover)!important;
+    background-color: var(--form-submit_bg_hover) !important;
 }
 
 .addItem {
@@ -393,6 +415,7 @@ div.admin  form > input {
     background-color: var(--from-submit_bg);
     cursor: pointer;
 }
+
 .addItem > form > input[type=submit]:hover {
     background-color: var(--form-submit_bg_hover);
 }
@@ -428,14 +451,15 @@ div.admin  form > input {
     font-family: 'Modak';
     src: url("../fonts/Modak-Regular.ttf");
 }
-#square{
+
+#square {
     transition-property: transform;
     transition-duration: 2s;
     transition-delay: 0.2s;
     position: relative;
 }
 
-#square:hover{
+#square:hover {
     transform: scale(2);
     z-index: 55;
 }

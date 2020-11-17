@@ -23,7 +23,6 @@ class Controllers
     {
         $this->view->page = 'main';
         $this->view->render($this->products->getAllProducts());
-        session_unset();
     }
 
     /**
@@ -55,7 +54,18 @@ class Controllers
     public function admin()
     {
         $this->view->page = 'admin';
-        $this->view->render($this->products->getAllProducts());
+        switch ($_GET['admin_page']) {
+            case 'add_user':
+                $this->view->render($this->admin->getAllUsers());
+                break;
+            case 'add_category':
+                $this->view->render($this->admin->getAllCategories());
+                break;
+            default:
+                $this->view->render($this->products->getAllProducts());
+                break;
+        }
+
     }
 
     public function login()
@@ -63,19 +73,17 @@ class Controllers
         $check = $this->admin->checkLoginAndPass();
         if ($check) {
             $_SESSION['check'] = true;
-            $_SESSION['message'] = 'Welcome';
-        } else {
-            $_SESSION['message'] = 'Wrong login or password';
         }
         Router::redirect();
     }
+
     public function logout()
     {
-        $logout = filter_input(INPUT_POST,'logout');
-        if(isset($logout)) {
+        $logout = filter_input(INPUT_POST, 'logout');
+        if (isset($logout)) {
             session_destroy();
+            Router::redirect();
         }
-        Router::redirect();
     }
 
     /**
@@ -91,11 +99,9 @@ class Controllers
             'vendorCode' => filter_input(INPUT_POST, 'vendorCode'),
             'price' => filter_input(INPUT_POST, 'price'),
         ];
-        //$this->products->addProduct($newProduct);
-        if($this->products->addProduct($newProduct))
-        {
+        if ($this->products->addProduct($newProduct)) {
             Router::redirect();
-        }else{
+        } else {
             $this->admin();
         }
     }
@@ -111,25 +117,29 @@ class Controllers
         Router::redirect();
     }
 
-    /**
-     * adminUsers()
-     *
-     */
-    public function adminUsers()
-    {
-        $this->view->page = 'admin_users';
-        $this->view->render($this->admin->getAllUsers());
-    }
-
     public function deleteUser()
     {
-        $id=filter_input(INPUT_POST, 'delete_user');
+        $id = filter_input(INPUT_POST, 'delete_user_id');
         $this->admin->deleteUser($id);
         Router::redirect();
     }
+
     public function addUser()
     {
         $this->admin->addNewUser();
+        Router::redirect();
+    }
+
+    public function addCategory()
+    {
+        $this->admin->addCategory();
+        Router::redirect();
+    }
+
+    public function deleteCategory()
+    {
+        $id = filter_input(INPUT_POST, 'delete_category_id');
+        $this->admin->deleteCategory($id);
         Router::redirect();
     }
 }

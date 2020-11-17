@@ -70,8 +70,6 @@ class Products
                     $query = "INSERT INTO products (id, name, description, price, vendor_code, category_id, image_name) VALUES (NULL, '$name', '$description', '$price', '$vendorCode', '$category', '$imageName');";
                     return $this->db->query($query);
                 }
-
-
             } else {
                 $_SESSION['message'] = "Couldn't upload file";
                 return false;
