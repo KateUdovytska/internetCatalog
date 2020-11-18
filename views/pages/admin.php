@@ -1,9 +1,12 @@
 <?php if (isset($_SESSION['message'])): ?>
-    <p><?= $_SESSION['message'] ?></p> <!-- TODO добавить стили сюда -->
+<div class="message_error">
+    <p><?= $_SESSION['message'] ?></p>
     <?php unset($_SESSION['message']); ?>
+</div>
 <?php endif; ?>
 <?php if ($_SESSION['check']) : ?>
     <?php if ($_GET['admin_page'] === 'add_product'): ?>
+    <div class="admin-box flex-align-items_center flex-just-cont_center">
         <div class="addItem">
             <p>Добавить товар</p>
             <form method="post" enctype="multipart/form-data">
@@ -25,7 +28,9 @@
                 <input type="submit" value="Добавить">
             </form>
         </div>
+    </div>
     <?php elseif ($_GET['admin_page'] === 'add_user'): ?>
+    <div class="admin-box">
         <div class="addItem">
             <p>Добавить нового пользователя</p>
             <form method="post">
@@ -35,7 +40,12 @@
                 <input type="submit" value="Добавить">
             </form>
         </div>
-        <table> <!-- TODO добавить стили сюда -->
+        <table class="admin-table">
+            <tr>
+                <th>#id</th>
+                <th>Name Users</th>
+                <th>Action</th>
+            </tr>
             <?php foreach ($data as $user): ?>
                 <tr>
                     <td><?= $user['id'] ?></td>
@@ -51,7 +61,9 @@
                 </tr>
             <?php endforeach; ?>
         </table>
+    </div>
     <?php elseif ($_GET['admin_page'] === 'add_category'): ?>
+    <div class="admin-box">
         <div class="addItem">
             <p>Добавить новую категорию</p>
             <form method="post">
@@ -59,7 +71,12 @@
                 <input type="submit">
             </form>
         </div>
-        <table> <!-- TODO добавить стили сюда -->
+        <table class="admin-table">
+            <tr>
+                <th>#id</th>
+                <th>Name Category</th>
+                <th>Action</th>
+            </tr>
             <?php foreach ($data as $category): ?>
                 <tr>
                     <td><?= $category['id'] ?></td>
@@ -75,6 +92,7 @@
                 </tr>
             <?php endforeach; ?>
         </table>
+    </div>
     <?php else: ?>
         <div class="products-description">
             <table class="table_products">
