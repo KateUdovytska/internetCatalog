@@ -1,3 +1,7 @@
+<?php
+$admin = new Admin();
+$categories = $admin->getAllCategories();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,22 +32,18 @@
             </ul>
             <h2>Категории:</h2>
             <ul>
-                <li><a href="?page=admin&category=cookies">Печенье</a></li>
-                <li><a href="?page=admin&category=cakes">Торты</a></li>
-                <li><a href="?page=admin&category=waffles">Вафли</a></li>
-                <li><a href="?page=admin&category=chocolate">Шоколад</a></li>
-                <li><a href="?page=admin&category=marshmallow">Зефир</a></li>
+                <?php foreach ($categories as $category): ?>
+                    <li><a href="?page=admin&category=<?= $category['name'] ?>"><?= $category['name'] ?></a></li>
+                <?php endforeach; ?>
             </ul>
         </nav>
     <?php elseif (!$_GET['page'] == 'admin') : ?>
         <nav>
             <h2>Categories:</h2>
             <ul>
-                <li><a href="?category=cookies">Печенье</a></li>
-                <li><a href="?category=cakes">Торты</a></li>
-                <li><a href="?category=waffles">Вафли</a></li>
-                <li><a href="?category=chocolate">Шоколад</a></li>
-                <li><a href="?category=marshmallow">Зефир</a></li>
+                <?php foreach ($categories as $category): ?>
+                    <li><a href="?category=<?= $category['name'] ?>"><?= $category['name'] ?></a></li>
+                <?php endforeach; ?>
             </ul>
         </nav>
     <?php endif; ?>

@@ -1,98 +1,98 @@
 <?php if (isset($_SESSION['message'])): ?>
-<div class="message_error">
-    <p><?= $_SESSION['message'] ?></p>
-    <?php unset($_SESSION['message']); ?>
-</div>
+    <div class="message_error">
+        <p><?= $_SESSION['message'] ?></p>
+        <?php unset($_SESSION['message']); ?>
+    </div>
 <?php endif; ?>
 <?php if ($_SESSION['check']) : ?>
     <?php if ($_GET['admin_page'] === 'add_product'): ?>
-    <div class="admin-box flex-align-items_center flex-just-cont_center">
-        <div class="addItem">
-            <p>Добавить товар</p>
-            <form method="post" enctype="multipart/form-data">
-                <input type="text" name="name" placeholder="name" required value="<?= $_SESSION['name'] ?>">
-                <input type="number" name="price" placeholder="price" required>
-                <textarea name="description" placeholder="description"
-                          required><?= $_SESSION['description'] ?></textarea>
-                <input type="text" name="vendorCode" placeholder="vendor code" required
-                       value="<?= $_SESSION['vendorCode'] ?>">
-                <select name="category" required>
-                    <option <?php if (empty($_SESSION['category'])) echo 'selected' ?> disabled>select category</option>
-                    <option <?php if ($_SESSION['category'] == 1) echo 'selected' ?> value="1">cookies</option>
-                    <option <?php if ($_SESSION['category'] == 2) echo 'selected' ?> value="2">chocolate</option>
-                    <option <?php if ($_SESSION['category'] == 5) echo 'selected' ?> value="5">waffles</option>
-                    <option <?php if ($_SESSION['category'] == 7) echo 'selected' ?> value="7">marshmallow</option>
-                    <option <?php if ($_SESSION['category'] == 9) echo 'selected' ?> value="9">cakes</option>
-                </select>
-                <input type="file" name="image" required accept="image/*">
-                <input type="submit" value="Добавить">
-            </form>
+        <div class="admin-box flex-align-items_center flex-just-cont_center">
+            <div class="addItem">
+                <p>Добавить товар</p>
+                <form method="post" enctype="multipart/form-data">
+                    <input type="text" name="name" placeholder="name" required value="<?= $_SESSION['name'] ?>">
+                    <input type="number" name="price" placeholder="price" required>
+                    <textarea name="description" placeholder="description"
+                              required><?= $_SESSION['description'] ?></textarea>
+                    <input type="text" name="vendorCode" placeholder="vendor code" required
+                           value="<?= $_SESSION['vendorCode'] ?>">
+                    <select name="category" required>
+                        <option <?php if (empty($_SESSION['category'])) echo 'selected' ?> disabled>select category
+                        </option>
+                        <?php foreach ($categories as $category): ?>
+                            <option <?php if ($_SESSION['category'] == $category['id']) echo 'selected' ?>
+                                    value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <input type="file" name="image" required accept="image/*">
+                    <input type="submit" value="Добавить">
+                </form>
+            </div>
         </div>
-    </div>
     <?php elseif ($_GET['admin_page'] === 'add_user'): ?>
-    <div class="admin-box">
-        <div class="addItem">
-            <p>Добавить нового пользователя</p>
-            <form method="post">
-                <input type="text" name="userLogin" placeholder="login" required>
-                <input type="password" name="userPassword" placeholder="password" required>
-                <input type="password" name="confPassword" placeholder="confirm password" required>
-                <input type="submit" value="Добавить">
-            </form>
-        </div>
-        <table class="admin-table">
-            <tr>
-                <th>#id</th>
-                <th>Name Users</th>
-                <th>Action</th>
-            </tr>
-            <?php foreach ($data as $user): ?>
+        <div class="admin-box">
+            <div class="addItem">
+                <p>Добавить нового пользователя</p>
+                <form method="post">
+                    <input type="text" name="userLogin" placeholder="login" required>
+                    <input type="password" name="userPassword" placeholder="password" required>
+                    <input type="password" name="confPassword" placeholder="confirm password" required>
+                    <input type="submit" value="Добавить">
+                </form>
+            </div>
+            <table class="admin-table">
                 <tr>
-                    <td><?= $user['id'] ?></td>
-                    <td><?= $user['login'] ?></td>
-                    <td>
-                        <form method="POST">
-                            <input type="hidden" name="delete_user_id" value="<?= $user['id'] ?>">
-                            <button type="submit" value="del" class="delete"><i
-                                        class="far fa-trash-alt trash_img"></i>
-                            </button>
-                        </form>
-                    </td>
+                    <th>#id</th>
+                    <th>Name Users</th>
+                    <th>Action</th>
                 </tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
+                <?php foreach ($data as $user): ?>
+                    <tr>
+                        <td><?= $user['id'] ?></td>
+                        <td><?= $user['login'] ?></td>
+                        <td>
+                            <form method="POST">
+                                <input type="hidden" name="delete_user_id" value="<?= $user['id'] ?>">
+                                <button type="submit" value="del" class="delete"><i
+                                            class="far fa-trash-alt trash_img"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
     <?php elseif ($_GET['admin_page'] === 'add_category'): ?>
-    <div class="admin-box">
-        <div class="addItem">
-            <p>Добавить новую категорию</p>
-            <form method="post">
-                <input type="text" name="name" placeholder="category name" required>
-                <input type="submit">
-            </form>
-        </div>
-        <table class="admin-table">
-            <tr>
-                <th>#id</th>
-                <th>Name Category</th>
-                <th>Action</th>
-            </tr>
-            <?php foreach ($data as $category): ?>
+        <div class="admin-box">
+            <div class="addItem">
+                <p>Добавить новую категорию</p>
+                <form method="post">
+                    <input type="text" name="name" placeholder="category name" required>
+                    <input type="submit">
+                </form>
+            </div>
+            <table class="admin-table">
                 <tr>
-                    <td><?= $category['id'] ?></td>
-                    <td><?= $category['name'] ?></td>
-                    <td>
-                        <form method="POST">
-                            <input type="hidden" name="delete_category_id" value="<?= $category['id'] ?>">
-                            <button type="submit" value="del" class="delete"><i
-                                        class="far fa-trash-alt trash_img"></i>
-                            </button>
-                        </form>
-                    </td>
+                    <th>#id</th>
+                    <th>Name Category</th>
+                    <th>Action</th>
                 </tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
+                <?php foreach ($data as $category): ?>
+                    <tr>
+                        <td><?= $category['id'] ?></td>
+                        <td><?= $category['name'] ?></td>
+                        <td>
+                            <form method="POST">
+                                <input type="hidden" name="delete_category_id" value="<?= $category['id'] ?>">
+                                <button type="submit" value="del" class="delete"><i
+                                            class="far fa-trash-alt trash_img"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
     <?php else: ?>
         <div class="products-description">
             <table class="table_products">
